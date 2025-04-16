@@ -173,6 +173,60 @@ let length = map.len(); // 2
 let slice = &[1, 2, 3][..];
 let length = slice.len(); // 3
 
+// WHILE LOOPS
+// PYTHON
+count = 0
+while count < 5:
+    print(count)
+    count += 1
+
+// RUST
+let mut count = 0;
+while count < 5 {
+    println!("{}", count);
+    count += 1;
+}
+
+// PYTHON
+while True:
+    print("Infinite loop")
+    break  # Exit the loop
+
+// RUST
+while true {
+    println!("Infinite loop");
+    break;  // Exit the loop
+}
+
+// RUST ONLY 
+loop {
+    println!("Infinite loop");
+    break;  // Exit the loop
+}
+
+// PYTHON
+count = 0
+while count < 10:
+    count += 1
+    if count % 2 == 0:
+        continue  # Skip even numbers
+    if count > 7:
+        break  # Exit when count > 7
+    print(count)
+    
+// RUST
+let mut count = 0;
+while count < 10 {
+    count += 1;
+    if count % 2 == 0 {
+        continue;  // Skip even numbers
+    }
+    if count > 7 {
+        break;  // Exit when count > 7
+    }
+    println!("{}", count);
+}    
+
 
 
 
