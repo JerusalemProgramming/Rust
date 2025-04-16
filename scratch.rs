@@ -47,19 +47,64 @@ if numbers.is_empty() {
 }
 
 // Clear all elements
-// numbers.clear();
+numbers.clear();
 
 // Key differences from Python lists:
-
 // Rust vectors are homogeneous (all elements must be the same type)
 // You need to specify the type (Vec<T> where T is the element type)
 // To modify a vector, it must be declared as mutable with mut
 // Rust has both unchecked access (vec[i]) which will panic if out of bounds, and safe access (vec.get(i)) which returns an Option
 // The vector operations tend to be more explicit than Python's list operations
-
 // Vectors in Rust provide similar functionality to Python lists but with Rust's added safety guarantees around memory management and type safety.
 
+// TUPLES - FIXED COLLECTIONS OF DIFFERENT TYPES
+fn main() {
+    
+    let mixed_tuple = (42, 3.14, "hello", true);
+    
+    println!("Integer: {}", mixed_tuple.0);
+    println!("Float: {}", mixed_tuple.1);
+    println!("String: {}", mixed_tuple.2);
+    println!("Boolean: {}", mixed_tuple.3);
+}
 
+// ENUM
+enum Mixed {
+    Integer(i32),
+    Float(f64),
+    Text(String),
+    Boolean(bool),
+}
+
+fn main() {
+    let mixed_array = vec![
+        Mixed::Integer(42),
+        Mixed::Float(3.14),
+        Mixed::Text(String::from("hello")),
+        Mixed::Boolean(true),
+    ];
+    
+    for item in &mixed_array {
+        match item {
+            Mixed::Integer(i) => println!("Integer: {}", i),
+            Mixed::Float(f) => println!("Float: {}", f),
+            Mixed::Text(s) => println!("Text: {}", s),
+            Mixed::Boolean(b) => println!("Boolean: {}", b),
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+// HASHMAPS
 In Rust, the equivalent of Python dictionaries are HashMap and BTreeMap from the standard library. HashMap is more similar to Python dictionaries in terms of performance characteristics (average O(1) lookups), while BTreeMap keeps keys sorted.
 Here's how to create and use a HashMap in Rust:
 
