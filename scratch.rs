@@ -1,4 +1,4 @@
-## RUST
+// RUST
 // Basic printing with newline (equivalent to Python's print())
 println!("Hello, world!");
 
@@ -94,12 +94,84 @@ fn main() {
     }
 }
 
+// RUST EQUIVALENT OF PYTHON type()
+// 1. Using std::any::type_name (for debugging/development)
+fn type_of<T>(_: &T) -> String {
+    std::any::type_name::<T>().to_string()
+}
 
+fn main() {
+    let x = 42;
+    let y = "hello";
+    let z = vec![1, 2, 3];
+    
+    println!("Type of x: {}", type_of(&x));  // Type of x: i32
+    println!("Type of y: {}", type_of(&y));  // Type of y: &str
+    println!("Type of z: {}", type_of(&z));  // Type of z: alloc::vec::Vec<i32>
+}
 
+// 2. Using std::any::Any trait (for runtime type checking)
+use std::any::Any;
 
+fn main() {
+    let num = 42;
+    
+    // Check if num is an i32
+    println!("Is i32: {}", (&num as &dyn Any).type_id() == std::any::TypeId::of::<i32>());
+    
+    // Check if num is a String
+    println!("Is String: {}", (&num as &dyn Any).type_id() == std::any::TypeId::of::<String>());
+}
 
+// 3. Using pattern matching
+fn what_type(value: &dyn Any) -> &'static str {
+    if value.is::<i32>() {
+        "i32"
+    } else if value.is::<f64>() {
+        "f64"
+    } else if value.is::<String>() {
+        "String"
+    } else {
+        "unknown type"
+    }
+}
 
+fn main() {
+    let a: Box<dyn Any> = Box::new(42);
+    let b: Box<dyn Any> = Box::new(3.14);
+    let c: Box<dyn Any> = Box::new(String::from("hello"));
+    
+    println!("a is {}", what_type(&*a));  // a is i32
+    println!("b is {}", what_type(&*b));  // b is f64
+    println!("c is {}", what_type(&*c));  // c is String
+}
 
+// RUST EQUIVALENT OF PYTHON len()
+// For strings
+let s = "hello";
+let length = s.len(); // 5 bytes (note: this counts bytes, not characters)
+
+// For string characters (grapheme clusters)
+// Need to use an external crate like unicode-segmentation for true character count
+let char_count = s.chars().count(); // 5 characters
+
+// For vectors/arrays
+let vec = vec![1, 2, 3, 4, 5];
+let length = vec.len(); // 5
+
+let array = [1, 2, 3, 4];
+let length = array.len(); // 4
+
+// For collections like HashMap and BTreeMap
+use std::collections::HashMap;
+let mut map = HashMap::new();
+map.insert("a", 1);
+map.insert("b", 2);
+let length = map.len(); // 2
+
+// For slices
+let slice = &[1, 2, 3][..];
+let length = slice.len(); // 3
 
 
 
