@@ -22,6 +22,7 @@ let l: usize = 10; // Pointer-sized unsigned integer
 let m = 10i8;    // i8 type
 let n = 10i16;   // i16 type
 let o = 10i32;   // i32 type
+let o = 10_i32;    // i32 type (underscore for readability)
 let p = 10i64;   // i64 type
 let q = 10i128;  // i128 type
 let r = 10isize; // isize type
@@ -29,6 +30,7 @@ let s = 10u8;    // u8 type
 let t = 10u16;   // u16 type
 let u = 10u32;   // u32 type
 let v = 10u64;   // u64 type
+let p = 10_u64;    // u64 type (underscore for readability)
 let w = 10u128;  // u128 type
 let x = 10usize; // usize type
 
@@ -86,12 +88,6 @@ let int_container = Container { value: 42 };
 // Mutable integers
 let mut counter = 0;
 counter += 1;
-
-// Integer Literals with Type Suffixes
-let m = 10i8;      // i8 type
-let n = 10u16;     // u16 type
-let o = 10_i32;    // i32 type (underscore for readability)
-let p = 10_u64;    // u64 type
 
 // Different Number Bases
 let decimal = 98_222;       // Decimal (base 10)
