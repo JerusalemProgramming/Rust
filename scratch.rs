@@ -1,3 +1,52 @@
+/* In Rust, there are several ways to convert a string to an integer. Here are the main approaches:
+Using the parse() method The most common way is to use the parse() method which is available on string types: */
+
+let my_string = "42";
+let my_int: i32 = my_string.parse().unwrap();
+// Or with type annotation in parse
+let my_int = my_string.parse::<i32>().unwrap();
+
+let my_string = "42";
+match my_string.parse::<i32>() {
+    Ok(num) => println!("Parsed number: {}", num),
+    Err(_) => println!("Failed to parse number"),
+}
+
+// Or using Result's methods
+let my_int = my_string.parse::<i32>().unwrap_or(0); // Default to 0 on error
+let my_int = my_string.parse::<i32>().expect("Not a valid number"); // Panic with message
+
+let my_string = "42";
+let my_int = i32::from_str(my_string).unwrap();
+
+// For decimal (base 10)
+let my_int = i32::from_str_radix(my_string, 10).unwrap();
+
+// For other bases (e.g., hexadecimal - base 16)
+let hex_string = "2A";
+let hex_value = i32::from_str_radix(hex_string, 16).unwrap(); // Gives 42
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // RUST
 // Basic printing with newline (equivalent to Python's print())
 println!("Hello, world!");
