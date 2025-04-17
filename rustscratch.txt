@@ -1,0 +1,26 @@
+rustc --version
+echo $env:Path
+rustup update
+rustup self uninstall
+rustc main.rs
+.\main.exe
+
+cargo --version
+cargo new hello_cargo [fresh cargo project]
+*******************************************
+cargo init [creates TOML file if not already there from vanilla rust file structure]
+cargo add ferris-says [alt way to add dependency to config file]
+*******************************************
+cargo build #### .\target\debug\hello_cargo.exe
+cargo build --release
+cargo run
+cargo check
+cargo test
+
+$ git clone example.org/someproject
+$ cd someproject
+$ cargo build
+
+cargo update [will ignore the Cargo.lock file and figure out all the latest versions that fit your specifications in Cargo.toml.]
+
+cargo doc --open command will build documentation provided by all your dependencies locally and open it in your browser.
